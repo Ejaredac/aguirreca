@@ -1,0 +1,33 @@
+#LaTabla
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+}
+
+#Encabezado_Tabla{
+    background-color: #eb5e55;
+}
+#LaTabla tr:nth-child(even)
+{
+    background-color: #fdf0d5;
+}
+#LaTabla tr:hover
+{
+    background-color: #c6d8d3;
+}
+
+#LaTabla th
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    
+}
+#LaTabla td,tr{
+    border: #3A3335 solid;
+    
+    padding: 8px;
+}
