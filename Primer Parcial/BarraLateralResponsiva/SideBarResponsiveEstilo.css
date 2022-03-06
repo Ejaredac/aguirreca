@@ -1,0 +1,89 @@
+i {
+    float: left;
+    margin-right: 5px;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.CajaSide-Icono-Contenido {
+    display: none;
+
+}
+
+.CajaSide-Icono:hover .CajaSide-Icono-Contenido {
+    display: block;
+    background-color: #B24C63;
+    width: 100%;
+
+}
+
+.CajaSide-Icono:hover p {
+
+    color: #fff;
+
+}
+
+.CajaSide-Icono-Contenido li>p:hover {
+    color: #357DED;
+}
+
+.CajaSide-Icono {}
+
+.CajaSide {
+
+
+    background-color: #DE541E;
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+
+    margin-right: 10px;
+
+}
+
+.Contenido {
+    display: inline-block;
+    position: fixed;
+}
+
+@media screen and (max-width:920px) and (min-width:480px) {
+    .CajaSide {
+        width: 100%;
+
+        height: fit-content;
+
+    }
+}
+
+@media screen and (max-width:480px) {
+    .CajaSide {
+        width: 100%;
+
+        height: fit-content;
+
+    }
+
+    .CajaSide-Icono-Contenido {
+        display: block;
+
+    }
+
+    .CajaSide-Icono {
+        background-color: #DE541E;
+    }
+}
+
+.Opcion {
+    display: none;
+}
+
+#OpcionAyuda:target, #OpcionContacto:target, #OpcionDireccion:target, #OpcionHistoria:target, #OpcionInicio:target, #OpcionMision:target, #OpcionVision:target {
+    display: block;
+}
+
