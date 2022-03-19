@@ -1,0 +1,35 @@
+body{
+    display: grid;
+    grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
+    grid-template-rows: calc(20%) calc(70%) calc(10%);
+}
+.secciones{
+    background-color: brown;
+    border: 2vh;
+    margin: 7.5px;
+   
+
+}
+header{
+    background-color: cadetblue;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-content: center;
+    justify-content: center;
+
+}
+footer{
+    background-color: darkcyan;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: calc(100%);
+}
+h1{
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+}
+h2{
+    position: fixed;
+}

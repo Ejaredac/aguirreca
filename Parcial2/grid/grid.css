@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.contenedor{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    background-color: darkorchid;
+    
+    grid-template-columns: 200px 200px;
+    
+    grid-auto-rows: min-content;
+    justify-content: end;
+    align-content: center;
+    align-self: center;
+}
+
+.caja{
+    width: 150px;
+    height: 150px;
+    background-color: cornflowerblue;
+    margin: 10px;
+
+    
+}
