@@ -1,0 +1,34 @@
+*
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.contenedor
+{
+width: 100%;
+height: 100%;
+background-color: white;
+
+display: grid;
+grid-template-columns: 200px 200px 200px;
+grid-template-rows: 200px 200px 200px;
+justify-content: center;
+align-content: center;
+justify-items: center;
+align-items: center;
+grid-auto-flow: dense;
+}
+
+.caja
+{
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  text-align: center;
+  border: 1 px solid maroon;
+}
+.cajacambio
+{
+	background-color: cornflowerblue;
+}
