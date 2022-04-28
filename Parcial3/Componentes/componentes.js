@@ -9,3 +9,6 @@ $(document).ready(function(){
         $('#modal1').hide();
     });
 })
+function updateTextInput(val) {
+    document.getElementById('inCali').value=val; 
+  }
