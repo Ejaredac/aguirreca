@@ -1,0 +1,113 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.css">
+    
+    <script src="node_modules\bootstrap\dist\js\bootstrap.js"></script>
+    <script src="node_modules\jquery\dist\jquery.js"></script>
+    
+    <script src="promesa.js"></script>
+    <title>Componentes</title>
+</head>
+<body>
+  <header id="enca" class="container-md h1">
+    Encabezdo cambio
+  </header>
+    <form class="align-items-center">
+      <div class="container-md align-self-center mb-3">
+        <label for="inHistoriaPreferida" class="form-label">Historia Preferida</label>
+        <input type="text" class="form-control" id="inHistoriaPreferida" aria-describedby="ayudaHistoriaPreferida">
+        <div class="form-text" id="ayudaHistoriaPreferida">Pon el titulo de tu Historia favorita. Una que hayas
+            amado.</div>
+    </div>
+    <div class="container-md align-self-center mb-3">
+        <label for="textQueTeGusto" class="form-label">¿Que te gusto de ella?</label>
+        <textarea type="text" class="form-control" id="textQueTeGusto"
+            aria-describedby="ayudaQueTeGusto"></textarea>
+        <div class="form-text" id="ayudaQueTeGusto">Describe que te gusto de esta historia o porque es tu favorita.
+        </div>
+    </div>
+    <div class="input-group container-md align-self-center mb-3">
+        <span class="input-group-text" id="spanGenero">Genero</span>
+        <select class="form-select form-select-sm" aria-label="ayudaGenero spanGenero" id="selectGenero">
+            <option selected>Otra</option>
+            <option value="1">Accion</option>
+            <option value="2">Aventura</option>
+            <option value="3">Romance</option>
+            <option value="4">Terror</option>
+            <option value="5">Ciencia Ficcion</option>
+            <option value="6">Misterio</option>
+            <option value="7">Guerra</option>
+        </select>
+        <span class="input-group-text" id="ayudaGenero">Selecciona el genero princial al que asocias a la
+            historia</span>
+    </div>
+    <div class="container-md align-self-center mb-3">
+        <label for="inPersonajeFavorito" class="form-label">Personaje favorito</label>
+        <input type="text" class="form-control" id="inPersonajeFavorito" aria-describedby="ayudaPersonaje" oninput="ajaxFunction();">
+        <div class="form-text" id="ayudaPersonaje">Escribe cual fue tu personaje favorito</div>
+    </div>
+    <div class="container-md align-self-center mb-3">
+        <label for="inArcoFavorito" class="form-label">Arco favorito</label>
+        <input type="text" class="form-control" id="inArcoFavorito" aria-describedby="ayudaArco">
+        <div class="form-text" id="ayudaArco">Escribe cual fue tu parte favorita de la historia.</div>
+    </div>
+    <div class="container-md align-self-center mb-3">
+        <input class="form-check-input" type="checkbox" id="chkAdultos">
+        <label class="form-check-label" for="chkAdultos">Es para adultos +18</label>
+    </div>
+    <div class="container-md align-self-center mb-3">
+        <label for="rangoCalificacion" class="form-label">Calificacion a la historia</label>
+        <input class="form-range" type="range" id="rangoCalificacion" name="rangoCalificacion" min="0" max="100"
+            onchange="updateTextInput(this.value);">
+        <input type="text" id="inCali" value="50">
+    </div>
+    <div class="container-md align-self-lg-center mb-3">
+        <label for="grpRecomendar">¿Lo recomendarias?</label>
+        <div class=" mb-3 align-self-center container-md" id="grpRecomendar">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radSi1">
+                <label class="form-check-label" for="radSi1">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radNo2" >
+                <label class="form-check-label" for="radNo2">
+                  No
+                </label>
+              </div>
+
+        </div>
+        
+    </div>
+        <div id="alert1" class="alert alert-primary alert-dismissible collapse" role="alert">
+            Alerta
+            <button id="btn btn-default">X</button>
+        </div>
+        <div>
+            <button id="btn1" type="button" class="btn btn-primary" onclick="ajaxFunction();">Boton 1</button>
+            <button id="btn2" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal1">Boton 2</button>
+        </div>
+        <div class="modal" tabindex="-1" id="modal1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close"  id="btncerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </form>
+</body>
+</html>
