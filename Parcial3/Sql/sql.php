@@ -1,5 +1,5 @@
 <?php
-    $iduser = $_POST['idlibro'];
+    $idlib = $_POST['idlib'];
     $hostname = 'localhost';
     $database = '19100140';
     $username = 'root';
@@ -8,7 +8,7 @@
 
 
     try{
-        $con = new PDO("mysql:host=$hostname;dbname=$database;port=$port,$username,$password");
+        $con = new PDO("mysql:host=$hostname;dbname=$database;port=$port",$username,$password);
 
     }
     catch(PDOException $ex){
@@ -19,7 +19,7 @@
     }
 
     try{
-        $consultasql = "select * from libro where idlibro =".$iduser;
+        $consultasql = "select * from libro where idlibro =".$idlib;
         $consulta = $con -> prepare($consultasql);
         $consulta -> execute();
         $resultado = $consulta->fetch(PDO::FETCH_ASSOC);

@@ -20,20 +20,23 @@ $(document).ready(function(){
         $('#modal1').hide();
     });
     $('#btnfetch').click(function(){
-        //var promesa = fetch('fetch.php');
-        //promesa.then(respuesta => respuesta.json()).then(function(datos){console.log(datos)});
-        console.log('dde');
-        let idvar=prompt("Teclee id del libro");
-
-        $.post('fetch.php',{idlibro:idvar},function(data){
-            refrescar(data);
-        },'json');
+        var promesa = fetch('fetch.php');
+        promesa.then(respuesta => respuesta.json()).then(function(datos){console.log(datos)});
+        
     });
 
     $('#btnCerraralert').click(function(){
         $('#alert1').hide();
     });
     $('#btnConsulta').click(function(){
+       
+        let idlibro=prompt("Teclee id del libro");
+
+        $.post('sql.php',{idlib:idlibro},function(data){
+            console.log(data);
+            refrescar(data);
+        },'json');
+
         
     });
 });
@@ -65,5 +68,6 @@ function ajaxFunction(){
 }
 function refrescar(data){
     console.log(data);
-    $('#inHistoriaPreferida').val(data.idlibro);
+    $('#inHistoriaPreferida').val(data.nombrelibro);
+    $('#textQueTeGusto').val(data.gusto);
 }
