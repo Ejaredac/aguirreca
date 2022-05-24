@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `19100140`.`libro` (
   `recomendacion` TINYINT NULL,
   PRIMARY KEY (`idlibro`))
 ENGINE = InnoDB;
+INSERT INTO `19100140`.libro (`idlibro`,`nombrelibro`,`gusto`,`genero`,`personajefav`,`arcofav`,`adult`,`calificacion`,`recomendacion`) VALUES (1,'El heroe de las mil cara','Es muy entretenido','Aventura','Heroe','La caida del heroe',1,98,1);
+INSERT INTO `19100140`.libro (`idlibro`,`nombrelibro`,`gusto`,`genero`,`personajefav`,`arcofav`,`adult`,`calificacion`,`recomendacion`) VALUES (2,'Dune','Es de accion en el espacio','Avetura','Paul','Ataque a la casa atreidis',1,87,1);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
