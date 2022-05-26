@@ -8,7 +8,7 @@ $(document).ready(function(){
                     resolve(solicitud.responseText);
                 }
             };
-            solicitud.open("GET","fetch.txt",true);
+            solicitud.open("GET","ejerciciofinal.txt",true);
             solicitud.send();
         });
         promesa.then(function(value){document.getElementById("enca").innerHTML=value;});
@@ -20,7 +20,7 @@ $(document).ready(function(){
         $('#modal1').hide();
     });
     $('#btnfetch').click(function(){
-        var promesa = fetch('fetch.php');
+        var promesa = fetch('ejerciciofinal.php');
         promesa.then(respuesta => respuesta.json()).then(function(datos){console.log(datos)});
         
     });
@@ -32,7 +32,7 @@ $(document).ready(function(){
        
         let idlibro=prompt("Teclee id del libro");
 
-        $.post('sql.php',{idlib:idlibro},function(data){
+        $.post('ejerciciofinal.php',{idlib:idlibro},function(data){
             console.log(data);
             refrescar(data);
         },'json');
@@ -48,7 +48,7 @@ function updateTextInput(val) {
 function ajaxFunction(){
     var ajaxRequest;
     ajaxRequest = new XMLHttpRequest();
-    $.post('fetch.php',{},function(data){
+    $.post('ejerciciofinal.php',{},function(data){
         console.log(data);
         $('#inHistoriaPreferida').val(data.idHistoria);
         $('#textQueTeGusto').val(data.gustostr);
@@ -63,11 +63,26 @@ function ajaxFunction(){
         var recomendado;
 
     }
-    ajaxRequest.open("GET","fetch.php",true);
+    ajaxRequest.open("GET","ejerciciofinal.php",true);
     ajaxRequest.send();
 }
 function refrescar(data){
     console.log(data);
     $('#inHistoriaPreferida').val(data.nombrelibro);
     $('#textQueTeGusto').val(data.gusto);
+    $('#spanGenero').val(data.genero);
+    $('#inPersonajeFavorito').val(data.personajefav);
+    $('#inArcoFavorito').val(data.arcofav);
+    document.getElementById('chkAdultos').checked = data.adult;
+    document.getElementById('inCali').value=data.calificacion;
+    document.getElementById('rangoCalificacion').value = data.calificacion;
+    var rec = data.recomendacion;
+    if(rec == true){
+    document.getElementById('radSi1').checked = true;
+    document.getElementById('radNo2').checked = false;
+    }
+    else{
+    document.getElementById('radNo2').checked = true;
+    document.getElementById('radSi1').checked = false;
+    }
 }
