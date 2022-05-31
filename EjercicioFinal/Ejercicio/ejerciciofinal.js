@@ -30,17 +30,52 @@ $(document).ready(function(){
     });
     $('#btnConsulta').click(function(){
        
-        let idlibro=prompt("Teclee id del libro");
+        idlibro=prompt("Teclee id del libro");
 
-        $.post('ejerciciofinal.php',{idlib:idlibro},function(data){
+        $.post('buscar.php',{idlib:idlibro},function(data){
             console.log(data);
-            refrescar(data);
+            refrescarbusqueda(data);
         },'json');
 
         
     });
-});
+    $('#btnEliminar').click(function(){
+        idlibro = prompt("Teclee el id del libro");
+        $.post('eliminar.php',{idlib:idlibro},function(data){
+            eliminarbusqueda(data);
+        },'json');
+    });
+    $('#btnAgregar').click(function(){
+        let nom = document.getElementById("inHistoriaPreferida").value;
+        let gusto = document.getElementById("textQueTeGusto").value;
+        let genero = document.getElementById("spanGenero").value;
+        let personaje = document.getElementById("inPersonajeFavorito").value;
+        let arco = document.getElementById("inArcoFavorito").value;
+        let adulto = document.getElementById("chkAdultos").checked;
+        let cali = document.getElementById("rangoCalificacion").value;
+        let recom = document.getElementById("radSi1").checked;
 
+        $.post('agregar.php',{n:nom , g:gusto , ge:genero , p:personaje, a:arco , ad:adulto , c:cali ,r:recom},function(data){
+            agregar(data);
+        })
+    });
+    $('#btnEditar').click(function(){
+        idlibro = prompt("Teclee el id del libro");
+        let nom = document.getElementById("inHistoriaPreferida").value;
+        let gusto = document.getElementById("textQueTeGusto").value;
+        let genero = document.getElementById("spanGenero").value;
+        let personaje = document.getElementById("inPersonajeFavorito").value;
+        let arco = document.getElementById("inArcoFavorito").value;
+        let adulto = document.getElementById("chkAdultos").checked;
+        let cali = document.getElementById("rangoCalificacion").value;
+        let recom = document.getElementById("radSi1").checked;
+
+        $.post('editar.php',{n:nom , g:gusto , ge:genero , p:personaje, a:arco , ad:adulto , c:cali ,r:recom,idlib:idlibro},function(data){
+            editar(data);
+        })
+    });
+});
+var idlibro = 0;
 function updateTextInput(val) {
     document.getElementById('inCali').value=val; 
   }
@@ -48,7 +83,7 @@ function updateTextInput(val) {
 function ajaxFunction(){
     var ajaxRequest;
     ajaxRequest = new XMLHttpRequest();
-    $.post('ejerciciofinal.php',{},function(data){
+    $.post('buscar.php',{},function(data){
         console.log(data);
         $('#inHistoriaPreferida').val(data.idHistoria);
         $('#textQueTeGusto').val(data.gustostr);
@@ -63,10 +98,10 @@ function ajaxFunction(){
         var recomendado;
 
     }
-    ajaxRequest.open("GET","ejerciciofinal.php",true);
+    ajaxRequest.open("GET","buscar.php",true);
     ajaxRequest.send();
 }
-function refrescar(data){
+function refrescarbusqueda(data){
     console.log(data);
     $('#inHistoriaPreferida').val(data.nombrelibro);
     $('#textQueTeGusto').val(data.gusto);
@@ -85,4 +120,13 @@ function refrescar(data){
     document.getElementById('radNo2').checked = true;
     document.getElementById('radSi1').checked = false;
     }
+}
+function eliminarbusqueda(data){
+
+}
+function agregar(data){
+
+}
+function editar(data){
+
 }
