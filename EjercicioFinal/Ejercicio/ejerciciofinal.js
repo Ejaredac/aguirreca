@@ -40,7 +40,7 @@ $(document).ready(function(){
         
     });
     $('#btnEliminar').click(function(){
-        idlibro = prompt("Teclee el id del libro");
+        
         $.post('eliminar.php',{idlib:idlibro},function(data){
             eliminarbusqueda(data);
         },'json');
@@ -60,7 +60,6 @@ $(document).ready(function(){
         })
     });
     $('#btnEditar').click(function(){
-        idlibro = prompt("Teclee el id del libro");
         let nom = document.getElementById("inHistoriaPreferida").value;
         let gusto = document.getElementById("textQueTeGusto").value;
         let genero = document.getElementById("spanGenero").value;
