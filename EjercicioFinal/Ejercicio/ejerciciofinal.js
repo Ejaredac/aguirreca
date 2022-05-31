@@ -40,7 +40,6 @@ $(document).ready(function(){
         
     });
     $('#btnEliminar').click(function(){
-        
         $.post('eliminar.php',{idlib:idlibro},function(data){
             eliminarbusqueda(data);
         },'json');
@@ -107,7 +106,12 @@ function refrescarbusqueda(data){
     $('#spanGenero').val(data.genero);
     $('#inPersonajeFavorito').val(data.personajefav);
     $('#inArcoFavorito').val(data.arcofav);
-    document.getElementById('chkAdultos').checked = data.adult;
+    if(data.adult == true){
+    document.getElementById('chkAdultos').checked = true;
+}
+else{
+    document.getElementById('chkAdultos').checked = false;
+}
     document.getElementById('inCali').value=data.calificacion;
     document.getElementById('rangoCalificacion').value = data.calificacion;
     var rec = data.recomendacion;
