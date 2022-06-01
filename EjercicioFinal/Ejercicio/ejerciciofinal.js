@@ -29,15 +29,27 @@ $(document).ready(function(){
         $('#alert1').hide();
     });
     $('#btnConsulta').click(function(){
+        $('#modal2').show();
+        
+    });
+    $('#btnConsultaId').click(function(){
        
-        idlibro=prompt("Teclee id del libro");
+
+        idlibro=document.getElementById("txtIdLibro").value;
 
         $.post('buscar.php',{idlib:idlibro},function(data){
             console.log(data);
             refrescarbusqueda(data);
         },'json');
+        $('#modal2').hide();
 
         
+    });
+    $('#btncerrar2').click(function(){
+        $('#modal2').hide();
+    });
+    $('#btncancelar2').click(function(){
+        $('#modal2').hide();
     });
     $('#btnEliminar').click(function(){
         $.post('eliminar.php',{idlib:idlibro},function(data){
