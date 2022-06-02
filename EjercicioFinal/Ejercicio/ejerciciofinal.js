@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
     $('#btnConsulta').click(function(){
         $('#modal2').show();
-        
+        document.getElementById("txtIdLibro").value = idlibro;
     });
     $('#btnConsultaId').click(function(){
        
